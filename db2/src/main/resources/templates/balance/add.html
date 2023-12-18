@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout}">
+    <head>
+        <title>[[#{balance.add.headline}]]</title>
+    </head>
+    <body>
+        <div layout:fragment="content">
+            <div class="d-flex flex-wrap mb-4">
+            </div>
+            <div th:replace="~{fragments/forms::globalErrors('balance')}" />
+            <form th:action="${requestUri}" method="post">
+                <div th:replace="~{fragments/forms::inputRow(object='balance', field='createDate', inputClass='js-datepicker')}" />
+                <div th:replace="~{fragments/forms::inputRow(object='balance', field='debit')}" />
+                <div th:replace="~{fragments/forms::inputRow(object='balance', field='credit')}" />
+                <div th:replace="~{fragments/forms::inputRow(object='balance', field='amount')}" />
+                <input type="submit" th:value="#{balance.add.headline}" class="btn btn-primary mt-4" />
+            </form>
+        </div>
+        <div>
+            <a th:href="@{/balances}" class="btn btn-secondary">[[#{balance.add.back}]]</a>
+        </div>
+    </body>
+</html>

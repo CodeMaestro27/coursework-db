@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout}">
+    <head>
+        <title>[[#{operation.list.headline}]]</title>
+    </head>
+    <body>
+        <div layout:fragment="content">
+            <div th:if="${operations.empty}">[[#{operation.list.empty}]]</div>
+            <div th:if="${!operations.empty}" class="table-responsive">
+                <table class="table table-striped table-hover align-middle">
+                    <thead>
+                        <tr>
+                            <th scope="col">[[#{operation.id.label}]]</th>
+                            <th scope="col">[[#{operation.debit.label}]]</th>
+                            <th scope="col">[[#{operation.credit.label}]]</th>
+                            <th scope="col">[[#{operation.createDate.label}]]</th>
+                            <th scope="col">[[#{operation.balance.label}]]</th>
+                            <th scope="col">[[#{operation.article.label}]]</th>
+                            <th><!-- --></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="operation : ${operations}">
+                            <td>[[${operation.id}]]</td>
+                            <td>[[${operation.debit}]]</td>
+                            <td>[[${operation.credit}]]</td>
+                            <td>[[${operation.createDate}]]</td>
+                            <td>[[${operation.balance}]]</td>
+                            <td>[[${operation.article}]]</td>
+                            <td>
+                                <div class="float-end text-nowrap">
+                                    <a th:href="@{/operations/edit/{id}(id=${operation.id})}" class="btn btn-sm btn-secondary">[[#{operation.list.edit}]]</a>
+                                    <form th:action="@{/operations/delete/{id}(id=${operation.id})}"
+                                            th:hx-confirm="#{delete.confirm}" method="post" class="d-inline">
+                                        <button type="submit" class="btn btn-sm btn-secondary">[[#{operation.list.delete}]]</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="float-end text-nowrap">
+                <div>
+                    <a th:href="@{/operations/add}" class="btn btn-dark ms-2">[[#{operation.list.createNew}]]</a>
+                </div>
+                <div>
+                    <a th:href="@{/tables}" class="btn btn-dark ms-2">Back to tables</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

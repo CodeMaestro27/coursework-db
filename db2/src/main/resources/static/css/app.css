@@ -1,0 +1,50 @@
+#main {
+    margin: auto;
+    text-align: center;
+    padding: 10px;
+}
+#l {
+    float: left;
+    margin: auto;
+    width: 32%;
+    padding: 10px;
+}
+#m {
+    float: left;
+    margin: auto;
+    width: 36%;
+    padding: 10px;
+}
+#r {
+    float: left;
+    margin: auto;
+    width: 32%;
+    padding: 10px;
+}
+#bot {
+    padding-top: 30px;
+}
+#rd {
+    float: left;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+#ld {
+    float: left;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+#ls {
+    float: left;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+#ms {
+    float: left;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}

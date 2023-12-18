@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>[[#{home.index.headline}]]</title>
+    <link rel="stylesheet" href="/static/css/app.css">
+</head>
+<body>
+<div id="main" layout:fragment="content">
+    <div class="">
+        <h5 id="bot" class="m-4">[[#{home.index.reports}]]</h5>
+        <div id="ld">
+            <a th:href="@{/reports/getBalanceOperationsCount}" class="btn btn-dark align-middle">Download last balance operations report</a>
+        </div>
+        <div id="rd">
+            <a th:href="@{/reports/getUncalculatedOperations}" class="btn btn-dark align-middle">Download highest expense article report</a>
+        </div>
+        <div>
+            <a th:href="@{/}" class="btn btn-dark align-middle">Back</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

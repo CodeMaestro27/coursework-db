@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>[[#{home.index.headline}]]</title>
+    <link rel="stylesheet" href="/static/css/app.css">
+</head>
+<body>
+<div id="main" layout:fragment="content">
+    <div class="">
+        <h5 class="m-4">[[#{home.index.tables}]]</h5>
+        <div id="l">
+            <a th:href="@{/operations}" class="btn btn-dark align-middle">[[#{operation.list.headline}]]</a>
+        </div>
+        <div id="m">
+            <a th:href="@{/articles}" class="btn btn-dark align-middle">[[#{article.list.headline}]]</a>
+        </div>
+        <div id="r">
+            <a th:href="@{/balances}" class="btn btn-dark align-middle">[[#{balance.list.headline}]]</a>
+        </div>
+        <div>
+            <a th:href="@{/}" class="btn btn-dark align-middle">Back</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

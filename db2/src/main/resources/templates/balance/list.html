@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout}">
+    <head>
+        <title>[[#{balance.list.headline}]]</title>
+    </head>
+    <body>
+        <div layout:fragment="content">
+            <div th:if="${balances.empty}">[[#{balance.list.empty}]]</div>
+            <div th:if="${!balances.empty}" class="table-responsive">
+                <table class="table table-striped table-hover align-middle">
+                    <thead>
+                        <tr>
+                            <th scope="col">[[#{balance.id.label}]]</th>
+                            <th scope="col">[[#{balance.createDate.label}]]</th>
+                            <th scope="col">[[#{balance.debit.label}]]</th>
+                            <th scope="col">[[#{balance.credit.label}]]</th>
+                            <th scope="col">[[#{balance.amount.label}]]</th>
+                            <th><!-- --></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="balance : ${balances}">
+                            <td>[[${balance.id}]]</td>
+                            <td>[[${balance.createDate}]]</td>
+                            <td>[[${balance.debit}]]</td>
+                            <td>[[${balance.credit}]]</td>
+                            <td>[[${balance.amount}]]</td>
+                            <td>
+                                <div class="float-end text-nowrap">
+                                    <a th:href="@{/balances/edit/{id}(id=${balance.id})}" class="btn btn-sm btn-secondary">[[#{balance.list.edit}]]</a>
+                                    <form th:action="@{/balances/delete/{id}(id=${balance.id})}"
+                                            th:hx-confirm="#{delete.confirm}" method="post" class="d-inline">
+                                        <button type="submit" class="btn btn-sm btn-secondary">[[#{balance.list.delete}]]</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="float-end text-nowrap">
+                <div>
+                    <a th:href="@{/balances/add}" class="btn btn-dark ms-2">[[#{balance.list.createNew}]]</a>
+                </div>
+                <div>
+                    <a th:href="@{/tables}" class="btn btn-dark ms-2">Back to tables</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
